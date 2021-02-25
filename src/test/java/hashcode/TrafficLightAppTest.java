@@ -28,6 +28,8 @@ public class TrafficLightAppTest {
 	
 	private static final String FILE_E_IN = "e.txt";
 	
+	private static final String FILE_F_IN = "f.txt";
+	
 	private static final String FILE_A_OUT = "a.out";
 	
 	private static final String FILE_B_OUT = "b.out";
@@ -37,6 +39,8 @@ public class TrafficLightAppTest {
 	private static final String FILE_D_OUT = "d.out";
 	
 	private static final String FILE_E_OUT = "e.out";
+	
+	private static final String FILE_F_OUT = "f.out";
     
     @Test
     public void trafficLightTest() throws NumberFormatException, IOException {
@@ -47,6 +51,7 @@ public class TrafficLightAppTest {
         InputFile inputFileC = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_C_IN);
         InputFile inputFileD = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_D_IN);
         InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
+        InputFile inputFileF = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_F_IN);
         
         // Business
         OutputFile outputFileA = TrafficLightBusiness.setTrafficLightTime(inputFileA);
@@ -54,6 +59,7 @@ public class TrafficLightAppTest {
         OutputFile outputFileC = TrafficLightBusiness.setTrafficLightTime(inputFileC);
         OutputFile outputFileD = TrafficLightBusiness.setTrafficLightTime(inputFileD);
         OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
+        OutputFile outputFileF = TrafficLightBusiness.setTrafficLightTime(inputFileF);
         
         // Write output file
         TrafficLightUtils.writeOutputFile(outputFileA, PATH_OUTPUT_FILES + FILE_A_OUT);
@@ -61,6 +67,7 @@ public class TrafficLightAppTest {
         TrafficLightUtils.writeOutputFile(outputFileC, PATH_OUTPUT_FILES + FILE_C_OUT);
         TrafficLightUtils.writeOutputFile(outputFileD, PATH_OUTPUT_FILES + FILE_D_OUT);
         TrafficLightUtils.writeOutputFile(outputFileE, PATH_OUTPUT_FILES + FILE_E_OUT);
+        TrafficLightUtils.writeOutputFile(outputFileF, PATH_OUTPUT_FILES + FILE_F_OUT);
         
         //Integer totalScore = outputFileA.getScore() + outputFileB.getScore() + outputFileC.getScore() + outputFileD.getScore() + outputFileE.getScore();  
         
