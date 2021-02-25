@@ -1,7 +1,7 @@
 package hashcode.business;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,10 +25,8 @@ public class TrafficLightBusiness {
 
 					// determiner les routes éligibles
 					for(final Street street : entry.getValue().getIncommingStreets()) {
-						for (final Map.Entry<Integer, Car> carEntry : street.getPositionOfCar().entrySet()) {
-							if(carEntry.getKey().equals(street.getTime())) {
-								eligibleStreet.add(street);
-							}
+						if(street.getPositionOfCar().containsKey(street.getTime())) {
+							eligibleStreet.add(street);
 						}
 					}
 
@@ -63,16 +61,32 @@ public class TrafficLightBusiness {
 							}
 						}
 
-						final Iterator<Integer> iter = bestStreet.getPositionOfCar().iterator();
-						while (iter.hasNext()) {
-							final Integer next = iter.next();
-							if(next.equals(bestStreet.getTime())) {
-								// TODO remove last car
-							}
-						}
+
+						bestStreet.getPositionOfCar().remove(bestStreet.getTime());
 					}
 
 					// change position of all cars
+					for(final Street street : entry.getValue().getIncommingStreets()) {
+						final Map<Integer, Car> map = new HashMap<>();
+						for (final Map.Entry<Integer, Car> entryCar : street.getPositionOfCar().entrySet()) {
+							if(entryCar.getKey() < street.getTime()) {
+								map.put(entryCar.getKey()+1, entryCar.getValue());
+							} else {
+								// TODO find new road
+								for(int ity = 0; ity<entryCar.getValue().getStreets().size(); ity++) {
+									if(entryCar.getValue().getStreets().get(ity).getName().equals(street.getName())
+											&& ity+1 < entryCar.getValue().getStreets().size()) {
+
+										int taa = 1;
+										while(entryCar.getValue().getStreets().get(ity+1).getPositionOfCar().containsKey(taa)) {
+											taa--;
+										}
+										entryCar.getValue().getStreets().get(ity+1).getPositionOfCar().put(taa, entryCar.getValue());
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}

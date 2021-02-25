@@ -45,29 +45,36 @@ public class TrafficLightAppTest {
 	@Test
 	public void pizzaAppTest() throws NumberFormatException, IOException {
 
-		// Read input file
 		final InputFile inputFileA = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_A_IN);
-		final InputFile inputFileB = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_B_IN);
-		final InputFile inputFileC = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_C_IN);
-		final InputFile inputFileD = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_D_IN);
-		final InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
-		final InputFile inputFileF = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_F_IN);
-
-		// Business
 		final OutputFile outputFileA = TrafficLightBusiness.setTrafficLightTime(inputFileA);
-		final OutputFile outputFileB = TrafficLightBusiness.setTrafficLightTime(inputFileB);
-		final OutputFile outputFileC = TrafficLightBusiness.setTrafficLightTime(inputFileC);
-		final OutputFile outputFileD = TrafficLightBusiness.setTrafficLightTime(inputFileD);
-		final OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
-		final OutputFile outputFileF = TrafficLightBusiness.setTrafficLightTime(inputFileF);
-
-		// Write output file
 		TrafficLightUtils.writeOutputFile(outputFileA, PATH_OUTPUT_FILES + FILE_A_OUT);
+
+
+		final InputFile inputFileB = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_B_IN);
+		final OutputFile outputFileB = TrafficLightBusiness.setTrafficLightTime(inputFileB);
 		TrafficLightUtils.writeOutputFile(outputFileB, PATH_OUTPUT_FILES + FILE_B_OUT);
+
+
+		final InputFile inputFileC = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_C_IN);
+		final OutputFile outputFileC = TrafficLightBusiness.setTrafficLightTime(inputFileC);
 		TrafficLightUtils.writeOutputFile(outputFileC, PATH_OUTPUT_FILES + FILE_C_OUT);
+
+
+		final InputFile inputFileD = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_D_IN);
+		final OutputFile outputFileD = TrafficLightBusiness.setTrafficLightTime(inputFileD);
 		TrafficLightUtils.writeOutputFile(outputFileD, PATH_OUTPUT_FILES + FILE_D_OUT);
+
+
+		final InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
+		final OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
 		TrafficLightUtils.writeOutputFile(outputFileE, PATH_OUTPUT_FILES + FILE_E_OUT);
+
+
+		final InputFile inputFileF = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_F_IN);
+		final OutputFile outputFileF = TrafficLightBusiness.setTrafficLightTime(inputFileF);
 		TrafficLightUtils.writeOutputFile(outputFileF, PATH_OUTPUT_FILES + FILE_F_OUT);
+
+
 
 	}
 
