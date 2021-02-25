@@ -2,6 +2,17 @@ package hashcode.model;
 
 public class Street {
 
+
+	public Street(String name, Integer time, Integer startIntersection,
+			Integer endIntersection) {
+		super();
+		this.name = name;
+		this.time = time;
+		this.timeOnTrafficLight = this.timeOnTrafficLight;
+		this.startIntersection = startIntersection;
+		this.endIntersection = endIntersection;
+	}
+
 	private String name;
 
 	private Integer time;
