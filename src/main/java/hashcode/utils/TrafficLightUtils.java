@@ -89,7 +89,7 @@ public class TrafficLightUtils {
 		outputFileString.append(outputFile.getIntersectionMap().size()).append(LN);
 		for (final Map.Entry<Integer, Intersection> entry : outputFile.getIntersectionMap().entrySet()) {
 			outputFileString.append(entry.getKey()).append(SPACE).append(LN);
-			outputFileString.append(entry.getValue().getIncommingStreets().size()).append(SPACE).append(LN);
+			outputFileString.append(entry.getValue().getFire().size()).append(SPACE).append(LN);
 			for (final TrafficLightForOneRoad traffic : entry.getValue().getFire()) {
 				outputFileString.append(traffic.getStreetName()).append(SPACE)
 				.append(traffic.getTimeOfFire()).append(LN);
