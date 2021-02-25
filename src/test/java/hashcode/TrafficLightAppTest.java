@@ -43,7 +43,7 @@ public class TrafficLightAppTest {
 	private static final String FILE_F_OUT = "f.out";
 
 	@Test
-	public void pizzaAppTest() throws NumberFormatException, IOException {
+	public void trafficLightTest() throws NumberFormatException, IOException {
 
 		// Read input file
 		final InputFile inputFileA = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_A_IN);
