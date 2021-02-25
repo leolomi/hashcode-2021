@@ -51,13 +51,30 @@ public class TrafficLightBusiness {
 							}
 						}
 						if(entry.getValue().getFire().isEmpty()) {
-							changeFireToStreet(entry, bestStreet);
+							final TrafficLightForOneRoad trafic = new TrafficLightForOneRoad();
+							trafic.setStreetName(bestStreet.getName());
+							trafic.setTimeOfFire(1);
+							entry.getValue().getFire().add(trafic);
 						} else {
 
 							if(entry.getValue().getFire().get(entry.getValue().getFire().size() - 1).getStreetName().equals(bestStreet.getName())) {
 								entry.getValue().getFire().get(entry.getValue().getFire().size() - 1).incrTimeOfFire();
 							} else {
-								changeFireToStreet(entry, bestStreet);
+								boolean alreadyExistRoad = false;
+								for(final TrafficLightForOneRoad road : entry.getValue().getFire()) {
+									if(road.getStreetName().equals(bestStreet.getName())) {
+										entry.getValue().getFire().get(entry.getValue().getFire().size() - 1).incrTimeOfFire();
+										alreadyExistRoad = true;
+										break;
+									}
+								}
+
+								if(!alreadyExistRoad) {
+									final TrafficLightForOneRoad trafic = new TrafficLightForOneRoad();
+									trafic.setStreetName(bestStreet.getName());
+									trafic.setTimeOfFire(1);
+									entry.getValue().getFire().add(trafic);
+								}
 							}
 						}
 
@@ -97,11 +114,5 @@ public class TrafficLightBusiness {
 		return out;
 	}
 
-	private static void changeFireToStreet(final Map.Entry<Integer, Intersection> entry, Street bestStreet) {
-		final TrafficLightForOneRoad trafic = new TrafficLightForOneRoad();
-		trafic.setStreetName(bestStreet.getName());
-		trafic.setTimeOfFire(1);
-		entry.getValue().getFire().add(trafic);
-	}
 
 }
