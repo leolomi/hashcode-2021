@@ -7,12 +7,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import hashcode.model.Car;
 import hashcode.model.InputFile;
+import hashcode.model.Intersection;
 import hashcode.model.OutputFile;
 import hashcode.model.Pizza;
 import hashcode.model.Street;
@@ -33,19 +35,36 @@ public class PizzaUtils {
 			// setting des paramètres initiaux contenu dans la première ligne
 			final String parameters[] = br.readLine().split(SPACE);
 			final Integer simultationSecs = Integer.valueOf(parameters[0]);
-			final Integer nbOfIntersection = Integer.valueOf(parameters[1]);
+			Integer.valueOf(parameters[1]);
 			final Integer nbOfStreets = Integer.valueOf(parameters[2]);
 			final Integer nbOfCars = Integer.valueOf(parameters[3]);
 			final Integer scoreByCars = Integer.valueOf(parameters[4]);
 
-			final Map<Integer, Street> intersectionMap = new HashMap<>();
+			final Map<Integer, Intersection> intersectionMap = new HashMap<>();
 			final Map<String, Street> streetMap = new HashMap<>();
 
 			for(int i = 0; i < nbOfStreets; i++) {
 				final String streetParameters[] = br.readLine().split(SPACE);
-				streetMap.put(String.valueOf(streetParameters[2]),
-						new Street(String.valueOf(streetParameters[2]), Integer.valueOf(streetParameters[3]),
-								Integer.valueOf(streetParameters[0]), Integer.valueOf(streetParameters[1])));
+				final Street street = new Street(String.valueOf(streetParameters[2]), Integer.valueOf(streetParameters[3]),
+						Integer.valueOf(streetParameters[0]), Integer.valueOf(streetParameters[1]));
+				streetMap.put(String.valueOf(streetParameters[2]), street);
+
+				if(intersectionMap.containsKey(street.getStartIntersection())) {
+					intersectionMap.get(street.getStartIntersection()).getOutcommingStreets().add(street);
+				} else {
+					final Intersection intersection = new Intersection();
+					intersection.setOutcommingStreets(Arrays.asList(street));
+					intersectionMap.put(street.getStartIntersection(), intersection);
+				}
+
+				if(intersectionMap.containsKey(street.getEndIntersection())) {
+					intersectionMap.get(street.getEndIntersection()).getIncommingStreets().add(street);
+				} else {
+					final Intersection intersection = new Intersection();
+					intersection.setIncommingStreets(Arrays.asList(street));
+					intersectionMap.put(street.getEndIntersection(), intersection);
+				}
+
 			}
 
 			final List<Car> carList = new ArrayList<>();
