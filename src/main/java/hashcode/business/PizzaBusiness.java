@@ -1,19 +1,26 @@
 package hashcode.business;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import hashcode.model.InputFile;
+import hashcode.model.Intersection;
 import hashcode.model.OutputFile;
-import hashcode.model.Team;
+import hashcode.model.Street;
 
 public class PizzaBusiness {
 
 	public static OutputFile deliverPizzas(InputFile inputFile) {
 
-		final List<Team> teams = new ArrayList<Team>();
+		final OutputFile out = new OutputFile();
 
-		return new OutputFile(null, teams);
+		for (final Map.Entry<Integer, Intersection> entry : inputFile.getIntersectionMap().entrySet()) {
+			for(final Street street : entry.getValue().getIncommingStreets()) {
+				street.setTimeOnTrafficLight(1);
+			}
+			out.getIntersections().add(entry.getValue());
+		}
+
+		return out;
 	}
 
 }
