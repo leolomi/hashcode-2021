@@ -1,5 +1,8 @@
 package hashcode.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Street {
 
 
@@ -23,7 +26,7 @@ public class Street {
 
 	private Integer endIntersection;
 
-	private int nbOfCars = 0;
+	private final List<Integer> positionOfCar = new ArrayList<>();
 
 	public String getName() {
 		return this.name;
@@ -65,16 +68,8 @@ public class Street {
 		this.timeOnTrafficLight = timeOnTrafficLight;
 	}
 
-	public int getNbOfCars() {
-		return this.nbOfCars;
-	}
-
-	public void setNbOfCars(int nbOfCars) {
-		this.nbOfCars = nbOfCars;
-	}
-
-	public void addCar() {
-		this.nbOfCars++;
+	public List<Integer> getPositionOfCar() {
+		return this.positionOfCar;
 	}
 
 }

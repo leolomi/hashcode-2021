@@ -19,6 +19,17 @@ public class TrafficLightBusiness {
 			}
 		}
 
+		for (final Map.Entry<Integer, Intersection> entry : inputFile.getIntersectionMap().entrySet()) {
+			for(final Street street : entry.getValue().getIncommingStreets()) {
+				street.setTimeOnTrafficLight(1);
+			}
+		}
+
+
+		for(int i = 0 ; i<inputFile.getTotalTime(); i++) {
+
+		}
+
 		out.setIntersectionMap(inputFile.getIntersectionMap());
 
 		return out;

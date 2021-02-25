@@ -9,6 +9,8 @@ public class Intersection {
 
 	private List<Street> outcommingStreets =  new ArrayList<Street>();
 
+	private List<TrafficLightForOneRoad> fire = new ArrayList<TrafficLightForOneRoad>();
+
 	public List<Street> getIncommingStreets() {
 		return this.incommingStreets;
 	}
@@ -25,5 +27,12 @@ public class Intersection {
 		this.outcommingStreets = outcommingStreets;
 	}
 
+	public List<TrafficLightForOneRoad> getFire() {
+		return this.fire;
+	}
+
+	public void setFire(List<TrafficLightForOneRoad> fire) {
+		this.fire = fire;
+	}
 
 }
