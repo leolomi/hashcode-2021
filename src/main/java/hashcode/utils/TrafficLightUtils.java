@@ -83,10 +83,11 @@ public class TrafficLightUtils {
 
 	public static void writeOutputFile(OutputFile outputFile, String path) {
 		final StringBuilder outputFileString = new StringBuilder();
-		outputFileString.append(outputFile.getIntersections().size()).append(LN);
-		for (final Intersection intersection : outputFile.getIntersections()) {
-			outputFileString.append(intersection.getIncommingStreets().size()).append(SPACE).append(LN);
-			for (final Street inconmingStreet : intersection.getIncommingStreets()) {
+		outputFileString.append(outputFile.getIntersectionMap().size()).append(LN);
+		for (final Map.Entry<Integer, Intersection> entry : outputFile.getIntersectionMap().entrySet()) {
+			outputFileString.append(entry.getKey()).append(SPACE).append(LN);
+			outputFileString.append(entry.getValue().getIncommingStreets().size()).append(SPACE).append(LN);
+			for (final Street inconmingStreet : entry.getValue().getIncommingStreets()) {
 				outputFileString.append(inconmingStreet.getName()).append(SPACE)
 				.append(inconmingStreet.getTimeOnTrafficLight()).append(LN);
 			}

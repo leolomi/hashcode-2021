@@ -1,18 +1,20 @@
 package hashcode.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OutputFile {
 
-	private List<Intersection> intersections = new ArrayList<Intersection>();
+	private Map<Integer, Intersection> intersectionMap = new HashMap<>();
 
-	public List<Intersection> getIntersections() {
-		return this.intersections;
+	public void setIntersectionMap(Map<Integer, Intersection> intersectionMap) {
+		this.intersectionMap = intersectionMap;
 	}
 
-	public void setIntersections(List<Intersection> intersections) {
-		this.intersections = intersections;
+	public Map<Integer, Intersection> getIntersectionMap() {
+		return this.intersectionMap;
 	}
+
+
 
 }
