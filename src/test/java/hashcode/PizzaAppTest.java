@@ -7,7 +7,7 @@ import org.junit.Test;
 import hashcode.business.PizzaBusiness;
 import hashcode.model.InputFile;
 import hashcode.model.OutputFile;
-import hashcode.utils.PizzaUtils;
+import hashcode.utils.TrafficLightUtils;
 
 /**
  * Unit test for simple App.
@@ -26,14 +26,14 @@ public class PizzaAppTest {
 	public void pizzaAppTest() throws NumberFormatException, IOException {
 
 		// Read input file
-		final InputFile inputFileA = PizzaUtils.readInputFile(PATH_INPUT_FILES + FILE_A_IN);
+		final InputFile inputFileA = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_A_IN);
 
 		// Business
 		final OutputFile outputFileA = PizzaBusiness.deliverPizzas(inputFileA);
 
 
 		// Write output file
-		PizzaUtils.writeOutputFile(outputFileA, PATH_OUTPUT_FILES + FILE_A_OUT);
+		TrafficLightUtils.writeOutputFile(outputFileA, PATH_OUTPUT_FILES + FILE_A_OUT);
 
 	}
 }
