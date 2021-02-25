@@ -1,7 +1,5 @@
 package hashcode;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 
 import org.junit.Test;
@@ -41,7 +39,7 @@ public class TrafficLightAppTest {
 	private static final String FILE_E_OUT = "e.out";
     
     @Test
-    public void pizzaAppTest() throws NumberFormatException, IOException {
+    public void trafficLightTest() throws NumberFormatException, IOException {
 
     	// Read input file
         InputFile inputFileA = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_A_IN);
