@@ -77,7 +77,7 @@ public class TrafficLightUtils {
 				carList.add(car);
 			}
 
-			inputFile = new InputFile(streetMap, carList, simultationSecs, scoreByCars);
+			inputFile = new InputFile(streetMap, carList, simultationSecs, scoreByCars, intersectionMap);
 		}
 		return inputFile;
 	}
