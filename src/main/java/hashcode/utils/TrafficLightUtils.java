@@ -16,11 +16,9 @@ import hashcode.model.Car;
 import hashcode.model.InputFile;
 import hashcode.model.Intersection;
 import hashcode.model.OutputFile;
-import hashcode.model.Pizza;
 import hashcode.model.Street;
-import hashcode.model.Team;
 
-public class PizzaUtils {
+public class TrafficLightUtils {
 
 	private static final String SPACE = " ";
 
@@ -86,13 +84,13 @@ public class PizzaUtils {
 
 	public static void writeOutputFile(OutputFile outputFile, String path) {
 		final StringBuilder outputFileString = new StringBuilder();
-		outputFileString.append(outputFile.getDeliveredTeams()).append(LN);
-		for (final Team team : outputFile.getTeams()) {
-			outputFileString.append(team.getPersons()).append(SPACE);
-			for (final Pizza pizza : team.getPizzas()) {
-				outputFileString.append(pizza.getId()).append(SPACE);
+		outputFileString.append(outputFile.getIntersections().size()).append(LN);
+		for (final Intersection intersection : outputFile.getIntersections()) {
+			outputFileString.append(intersection.getIncommingStreets().size()).append(SPACE).append(LN);
+			for (final Street inconmingStreet : intersection.getIncommingStreets()) {
+				outputFileString.append(inconmingStreet.getName()).append(SPACE)
+				.append(inconmingStreet.getTimeOnTrafficLight()).append(LN);
 			}
-			outputFileString.append(LN);
 		}
 		writeUsingOutputStream(outputFileString.toString(), path);
 	}
