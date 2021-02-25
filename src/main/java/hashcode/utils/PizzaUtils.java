@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +52,7 @@ public class PizzaUtils {
 					intersectionMap.get(street.getStartIntersection()).getOutcommingStreets().add(street);
 				} else {
 					final Intersection intersection = new Intersection();
-					intersection.setOutcommingStreets(Arrays.asList(street));
+					intersection.getOutcommingStreets().add(street);
 					intersectionMap.put(street.getStartIntersection(), intersection);
 				}
 
@@ -61,7 +60,7 @@ public class PizzaUtils {
 					intersectionMap.get(street.getEndIntersection()).getIncommingStreets().add(street);
 				} else {
 					final Intersection intersection = new Intersection();
-					intersection.setIncommingStreets(Arrays.asList(street));
+					intersection.getIncommingStreets().add(street);
 					intersectionMap.put(street.getEndIntersection(), intersection);
 				}
 
@@ -73,7 +72,7 @@ public class PizzaUtils {
 				final String carParameters[] = br.readLine().split(SPACE);
 				final Car car = new Car();
 				final Integer nbStreetForCar = Integer.valueOf(carParameters[0]);
-				for(int j = 1; j < nbStreetForCar; j++) {
+				for(int j = 1; j <= nbStreetForCar; j++) {
 					car.getStreets().add(streetMap.get(carParameters[j]));
 				}
 				carList.add(car);
