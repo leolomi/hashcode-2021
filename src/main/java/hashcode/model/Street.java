@@ -26,7 +26,7 @@ public class Street {
 
 	private Integer endIntersection;
 
-	private final Map<Integer, Car> positionOfCar = new HashMap<>();
+	private  Map<Integer, Car> positionOfCar = new HashMap<>();
 
 	public String getName() {
 		return this.name;
@@ -70,6 +70,10 @@ public class Street {
 
 	public Map<Integer, Car> getPositionOfCar() {
 		return this.positionOfCar;
+	}
+
+	public void setPositionOfCar(Map<Integer, Car> positionOfCar) {
+		this.positionOfCar = positionOfCar;
 	}
 
 }

@@ -86,6 +86,7 @@ public class TrafficLightBusiness {
 								}
 							}
 						}
+						street.setPositionOfCar(map);
 					}
 				}
 			}

@@ -50,10 +50,19 @@ public class TrafficLightAppTest {
 		TrafficLightUtils.writeOutputFile(outputFileA, PATH_OUTPUT_FILES + FILE_A_OUT);
 
 
+		final InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
+		final OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
+		TrafficLightUtils.writeOutputFile(outputFileE, PATH_OUTPUT_FILES + FILE_E_OUT);
+
 		final InputFile inputFileB = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_B_IN);
 		final OutputFile outputFileB = TrafficLightBusiness.setTrafficLightTime(inputFileB);
 		TrafficLightUtils.writeOutputFile(outputFileB, PATH_OUTPUT_FILES + FILE_B_OUT);
 
+
+
+		final InputFile inputFileF = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_F_IN);
+		final OutputFile outputFileF = TrafficLightBusiness.setTrafficLightTime(inputFileF);
+		TrafficLightUtils.writeOutputFile(outputFileF, PATH_OUTPUT_FILES + FILE_F_OUT);
 
 		final InputFile inputFileC = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_C_IN);
 		final OutputFile outputFileC = TrafficLightBusiness.setTrafficLightTime(inputFileC);
@@ -65,14 +74,6 @@ public class TrafficLightAppTest {
 		TrafficLightUtils.writeOutputFile(outputFileD, PATH_OUTPUT_FILES + FILE_D_OUT);
 
 
-		final InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
-		final OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
-		TrafficLightUtils.writeOutputFile(outputFileE, PATH_OUTPUT_FILES + FILE_E_OUT);
-
-
-		final InputFile inputFileF = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_F_IN);
-		final OutputFile outputFileF = TrafficLightBusiness.setTrafficLightTime(inputFileF);
-		TrafficLightUtils.writeOutputFile(outputFileF, PATH_OUTPUT_FILES + FILE_F_OUT);
 
 
 
