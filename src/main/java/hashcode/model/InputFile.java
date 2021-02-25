@@ -6,13 +6,16 @@ import java.util.Map;
 public class InputFile {
 
 
-	public InputFile(Map<String, Street> streetMap, List<Car> carList, Integer totalTime, Integer scoreByCar) {
+	public InputFile(Map<String, Street> streetMap, List<Car> carList, Integer totalTime, Integer scoreByCar, Map<Integer, Intersection>  intersectionMap) {
 		super();
 		this.streetMap = streetMap;
 		this.carList = carList;
 		this.totalTime = totalTime;
 		this.scoreByCar = scoreByCar;
+		this.intersectionMap = intersectionMap;
 	}
+
+	private final Map<Integer, Intersection> intersectionMap;
 
 	private final Map<String, Street> streetMap;
 
@@ -37,6 +40,11 @@ public class InputFile {
 	public Integer getScoreByCar() {
 		return this.scoreByCar;
 	}
+
+	public Map<Integer, Intersection> getIntersectionMap() {
+		return this.intersectionMap;
+	}
+
 
 
 }
