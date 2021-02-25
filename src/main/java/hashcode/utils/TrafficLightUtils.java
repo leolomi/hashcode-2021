@@ -72,6 +72,7 @@ public class TrafficLightUtils {
 				final Integer nbStreetForCar = Integer.valueOf(carParameters[0]);
 				for(int j = 1; j <= nbStreetForCar; j++) {
 					car.getStreets().add(streetMap.get(carParameters[j]));
+					streetMap.get(carParameters[j]).addCar();
 				}
 				carList.add(car);
 			}

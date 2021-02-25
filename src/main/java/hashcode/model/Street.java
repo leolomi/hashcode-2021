@@ -23,6 +23,8 @@ public class Street {
 
 	private Integer endIntersection;
 
+	private int nbOfCars = 0;
+
 	public String getName() {
 		return this.name;
 	}
@@ -61,6 +63,18 @@ public class Street {
 
 	public void setTimeOnTrafficLight(Integer timeOnTrafficLight) {
 		this.timeOnTrafficLight = timeOnTrafficLight;
+	}
+
+	public int getNbOfCars() {
+		return this.nbOfCars;
+	}
+
+	public void setNbOfCars(int nbOfCars) {
+		this.nbOfCars = nbOfCars;
+	}
+
+	public void addCar() {
+		this.nbOfCars++;
 	}
 
 }
