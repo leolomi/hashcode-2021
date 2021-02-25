@@ -16,6 +16,7 @@ import hashcode.model.InputFile;
 import hashcode.model.Intersection;
 import hashcode.model.OutputFile;
 import hashcode.model.Street;
+import hashcode.model.TrafficLightForOneRoad;
 
 public class TrafficLightUtils {
 
@@ -72,7 +73,8 @@ public class TrafficLightUtils {
 				final Integer nbStreetForCar = Integer.valueOf(carParameters[0]);
 				for(int j = 1; j <= nbStreetForCar; j++) {
 					car.getStreets().add(streetMap.get(carParameters[j]));
-					streetMap.get(carParameters[j]).getPositionOfCar().add(streetMap.get(carParameters[j]).getTime() - streetMap.get(carParameters[j]).getPositionOfCar().size());
+					streetMap.get(carParameters[j]).getPositionOfCar().put(streetMap.get(carParameters[j]).getTime()
+							- streetMap.get(carParameters[j]).getPositionOfCar().size(), car);
 				}
 				carList.add(car);
 			}
@@ -88,9 +90,9 @@ public class TrafficLightUtils {
 		for (final Map.Entry<Integer, Intersection> entry : outputFile.getIntersectionMap().entrySet()) {
 			outputFileString.append(entry.getKey()).append(SPACE).append(LN);
 			outputFileString.append(entry.getValue().getIncommingStreets().size()).append(SPACE).append(LN);
-			for (final Street inconmingStreet : entry.getValue().getIncommingStreets()) {
-				outputFileString.append(inconmingStreet.getName()).append(SPACE)
-				.append(inconmingStreet.getTimeOnTrafficLight()).append(LN);
+			for (final TrafficLightForOneRoad traffic : entry.getValue().getFire()) {
+				outputFileString.append(traffic.getStreetName()).append(SPACE)
+				.append(traffic.getTimeOfFire()).append(LN);
 			}
 		}
 		writeUsingOutputStream(outputFileString.toString(), path);

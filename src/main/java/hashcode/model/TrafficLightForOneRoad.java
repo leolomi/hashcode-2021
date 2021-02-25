@@ -22,6 +22,10 @@ public class TrafficLightForOneRoad {
 		this.timeOfFire = timeOfFire;
 	}
 
+	public void incrTimeOfFire() {
+		this.timeOfFire++;
+	}
+
 
 
 }

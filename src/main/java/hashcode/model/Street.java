@@ -1,7 +1,7 @@
 package hashcode.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Street {
 
@@ -26,7 +26,7 @@ public class Street {
 
 	private Integer endIntersection;
 
-	private final List<Integer> positionOfCar = new ArrayList<>();
+	private final Map<Integer, Car> positionOfCar = new HashMap<>();
 
 	public String getName() {
 		return this.name;
@@ -68,7 +68,7 @@ public class Street {
 		this.timeOnTrafficLight = timeOnTrafficLight;
 	}
 
-	public List<Integer> getPositionOfCar() {
+	public Map<Integer, Car> getPositionOfCar() {
 		return this.positionOfCar;
 	}
 
