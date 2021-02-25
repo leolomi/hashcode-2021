@@ -69,8 +69,6 @@ public class TrafficLightAppTest {
 		TrafficLightUtils.writeOutputFile(outputFileE, PATH_OUTPUT_FILES + FILE_E_OUT);
 		TrafficLightUtils.writeOutputFile(outputFileF, PATH_OUTPUT_FILES + FILE_F_OUT);
 
-		//Integer totalScore = outputFileA.getScore() + outputFileB.getScore() + outputFileC.getScore() + outputFileD.getScore() + outputFileE.getScore();
-
-		//System.out.println("Total score all files " + totalScore);
 	}
+
 }

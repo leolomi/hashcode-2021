@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import hashcode.business.PizzaBusiness;
+import hashcode.business.TrafficLightBusiness;
 import hashcode.model.InputFile;
 import hashcode.model.OutputFile;
 import hashcode.utils.TrafficLightUtils;
@@ -49,11 +49,11 @@ public class PizzaAppTest {
 		final InputFile inputFileE = TrafficLightUtils.readInputFile(PATH_INPUT_FILES + FILE_E_IN);
 
 		// Business
-		final OutputFile outputFileA = PizzaBusiness.deliverPizzas(inputFileA);
-		final OutputFile outputFileB = PizzaBusiness.deliverPizzas(inputFileB);
-		final OutputFile outputFileC = PizzaBusiness.deliverPizzas(inputFileC);
-		final OutputFile outputFileD = PizzaBusiness.deliverPizzas(inputFileD);
-		final OutputFile outputFileE = PizzaBusiness.deliverPizzas(inputFileE);
+		final OutputFile outputFileA = TrafficLightBusiness.setTrafficLightTime(inputFileA);
+		final OutputFile outputFileB = TrafficLightBusiness.setTrafficLightTime(inputFileB);
+		final OutputFile outputFileC = TrafficLightBusiness.setTrafficLightTime(inputFileC);
+		final OutputFile outputFileD = TrafficLightBusiness.setTrafficLightTime(inputFileD);
+		final OutputFile outputFileE = TrafficLightBusiness.setTrafficLightTime(inputFileE);
 
 
 		// Write output file
